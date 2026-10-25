@@ -89,18 +89,26 @@ h1 {
 }
 
 .card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 1.25rem;
   display: grid;
   grid-template-columns: 1fr auto;
   gap: 1rem;
   align-items: start;
-  transition: border-color 0.15s ease;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.25rem;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.15s ease, transform 0.1s ease;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
 }
 .card:hover {
   border-color: var(--accent);
+  transform: translateY(-2px);
+}
+.card:active {
+  transform: translateY(0);
 }
 
 .card-content {
@@ -160,20 +168,6 @@ h1 {
   letter-spacing: 0.08em;
 }
 
-.link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.25rem;
-  color: var(--accent);
-  font-size: 0.8125rem;
-  font-weight: 500;
-  text-decoration: none;
-  margin-top: 0.75rem;
-}
-.link:hover {
-  text-decoration: underline;
-}
-
 .featured {
   border-color: var(--accent);
   background: linear-gradient(135deg, var(--surface) 0%, var(--accent-dim) 100%);
@@ -219,7 +213,7 @@ footer {
   </header>
 
   <div class="grid">
-    <article class="card featured">
+    <a class="card featured" href="https://x.com/claudeai/status/2065456684890292681" target="_blank">
       <div class="card-content">
         <div class="featured-badge">Most Popular</div>
         <div class="card-meta">
@@ -228,15 +222,14 @@ footer {
         </div>
         <h2 class="card-title">Claude Fable 5 Projects Showcase</h2>
         <p class="card-desc">Official thread featuring 9+ community projects: 3D shaders, Yosemite terrain, Boeing 747 benchmark, glass liquid UI, goldfish app, IK body physics and more.</p>
-        <a class="link" href="https://x.com/claudeai/status/2065456684890292681" target="_blank">View on X &rarr;</a>
       </div>
       <div class="card-stats">
         <div class="views">1.3M</div>
         <div class="views-label">Views</div>
       </div>
-    </article>
+    </a>
 
-    <article class="card">
+    <a class="card" href="https://x.com/himanshubuildss/status/2109130327277142377" target="_blank">
       <div class="card-content">
         <div class="card-meta">
           <span class="author">@himanshubuildss</span>
@@ -244,15 +237,14 @@ footer {
         </div>
         <h2 class="card-title">40 Vibe Coding Resources</h2>
         <p class="card-desc">Complete resource list: scrolltide.co, shadcn, aceternity, magicui, Three.js, shadertoy, motion primitives, and 33 more curated tools and libraries.</p>
-        <a class="link" href="https://x.com/himanshubuildss/status/2109130327277142377" target="_blank">View on X &rarr;</a>
       </div>
       <div class="card-stats">
         <div class="views">71K</div>
         <div class="views-label">Views</div>
       </div>
-    </article>
+    </a>
 
-    <article class="card">
+    <a class="card" href="https://x.com/celineodier/status/2111487991633805770" target="_blank">
       <div class="card-content">
         <div class="card-meta">
           <span class="author">@celineodier</span>
@@ -260,15 +252,14 @@ footer {
         </div>
         <h2 class="card-title">Build 3D Websites with One Prompt</h2>
         <p class="card-desc">3-step workflow: pick a 3D website from motionsites.ai, copy its prompt, paste into Gemini 4. No code or design skills needed.</p>
-        <a class="link" href="https://x.com/celineodier/status/2111487991633805770" target="_blank">View on X &rarr;</a>
       </div>
       <div class="card-stats">
         <div class="views">70K</div>
         <div class="views-label">Views</div>
       </div>
-    </article>
+    </a>
 
-    <article class="card">
+    <a class="card" href="https://x.com/roundtablespace/status/2078657323648819284" target="_blank">
       <div class="card-content">
         <div class="card-meta">
           <span class="author">@RoundtableSpace</span>
@@ -276,15 +267,14 @@ footer {
         </div>
         <h2 class="card-title">$100K Cinematic Websites with GPT-5.6 Sol</h2>
         <p class="card-desc">Step-by-step tutorial for building high-value cinematic websites using GPT-5.6 Sol. Professional agency-level output.</p>
-        <a class="link" href="https://x.com/roundtablespace/status/2078657323648819284" target="_blank">View on X &rarr;</a>
       </div>
       <div class="card-stats">
         <div class="views">66K</div>
         <div class="views-label">Views</div>
       </div>
-    </article>
+    </a>
 
-    <article class="card">
+    <a class="card" href="https://x.com/roundtablespace/status/2111498724392214939" target="_blank">
       <div class="card-content">
         <div class="card-meta">
           <span class="author">@RoundtableSpace</span>
@@ -292,15 +282,14 @@ footer {
         </div>
         <h2 class="card-title">25 Vibe Coder Resources</h2>
         <p class="card-desc">Curated collection of resources to stay ahead while others are still prompting blind. Essential toolkit for AI developers.</p>
-        <a class="link" href="https://x.com/roundtablespace/status/2111498724392214939" target="_blank">View on X &rarr;</a>
       </div>
       <div class="card-stats">
         <div class="views">60K</div>
         <div class="views-label">Views</div>
       </div>
-    </article>
+    </a>
 
-    <article class="card">
+    <a class="card" href="https://x.com/roundtablespace/status/2086599657925329347" target="_blank">
       <div class="card-content">
         <div class="card-meta">
           <span class="author">@RoundtableSpace</span>
@@ -308,15 +297,14 @@ footer {
         </div>
         <h2 class="card-title">Claude 3D Websites Course</h2>
         <p class="card-desc">Free 1-hour course covering interactive 3D experiences, games from scratch, and the full design workflow with Claude AI.</p>
-        <a class="link" href="https://x.com/roundtablespace/status/2086599657925329347" target="_blank">View on X &rarr;</a>
       </div>
       <div class="card-stats">
         <div class="views">57K</div>
         <div class="views-label">Views</div>
       </div>
-    </article>
+    </a>
 
-    <article class="card">
+    <a class="card" href="https://x.com/roundtablespace/status/2111098587706962285" target="_blank">
       <div class="card-content">
         <div class="card-meta">
           <span class="author">@RoundtableSpace</span>
@@ -324,13 +312,12 @@ footer {
         </div>
         <h2 class="card-title">800K Gaussian Splats in Browser</h2>
         <p class="card-desc">Living world rendered with 800,000 Gaussian splats live in browser on WebGPU. Are Gaussian splats about to replace polygons?</p>
-        <a class="link" href="https://x.com/roundtablespace/status/2111098587706962285" target="_blank">View on X &rarr;</a>
       </div>
       <div class="card-stats">
         <div class="views">39K</div>
         <div class="views-label">Views</div>
       </div>
-    </article>
+    </a>
   </div>
 
   <footer>

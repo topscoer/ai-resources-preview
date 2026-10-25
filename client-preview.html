@@ -1,0 +1,339 @@
+<title>AI Resources Preview</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Outfit:wght@500;700&display=swap">
+<style>
+:root {
+  /* Layout: card grid with accent borders */
+  --bg: #0a0a0b;
+  --surface: #141416;
+  --border: #222226;
+  --fg: #e8e8ec;
+  --fg-muted: #8b8b94;
+  --accent: #6ee7b7;
+  --accent-dim: rgba(110, 231, 183, 0.12);
+  color-scheme: dark;
+}
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    --bg: #f8f8fa;
+    --surface: #ffffff;
+    --border: #e4e4e8;
+    --fg: #18181b;
+    --fg-muted: #71717a;
+    --accent: #059669;
+    --accent-dim: rgba(5, 150, 105, 0.08);
+    color-scheme: light;
+  }
+}
+:root[data-theme="light"] {
+  --bg: #f8f8fa;
+  --surface: #ffffff;
+  --border: #e4e4e8;
+  --fg: #18181b;
+  --fg-muted: #71717a;
+  --accent: #059669;
+  --accent-dim: rgba(5, 150, 105, 0.08);
+  color-scheme: light;
+}
+
+* { box-sizing: border-box; margin: 0; }
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: 'DM Sans', system-ui, sans-serif;
+  line-height: 1.6;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 2rem;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+h1 {
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(1.75rem, 5vw, 2.5rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  color: var(--fg-muted);
+  font-size: 1rem;
+}
+
+.badge {
+  display: inline-block;
+  background: var(--accent-dim);
+  color: var(--accent);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.25rem 0.75rem;
+  border-radius: 100px;
+  margin-top: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.25rem;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 1rem;
+  align-items: start;
+  transition: border-color 0.15s ease;
+}
+.card:hover {
+  border-color: var(--accent);
+}
+
+.card-content {
+  min-width: 0;
+}
+
+.card-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.author {
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+.duration {
+  color: var(--fg-muted);
+  font-size: 0.75rem;
+  background: var(--accent-dim);
+  padding: 0.125rem 0.5rem;
+  border-radius: 4px;
+}
+
+.card-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.4;
+  margin-bottom: 0.5rem;
+}
+
+.card-desc {
+  color: var(--fg-muted);
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.card-stats {
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.views {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.views-label {
+  font-size: 0.625rem;
+  color: var(--fg-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  color: var(--accent);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  text-decoration: none;
+  margin-top: 0.75rem;
+}
+.link:hover {
+  text-decoration: underline;
+}
+
+.featured {
+  border-color: var(--accent);
+  background: linear-gradient(135deg, var(--surface) 0%, var(--accent-dim) 100%);
+}
+
+.featured-badge {
+  font-size: 0.625rem;
+  font-weight: 700;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.25rem;
+}
+
+footer {
+  text-align: center;
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+  color: var(--fg-muted);
+  font-size: 0.875rem;
+}
+
+@media (max-width: 600px) {
+  .card {
+    grid-template-columns: 1fr;
+  }
+  .card-stats {
+    text-align: left;
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+  }
+  .views { font-size: 1rem; }
+}
+</style>
+
+<div class="container">
+  <header>
+    <h1>AI Development Resources</h1>
+    <p class="subtitle">Curated tutorials and tools for building with AI</p>
+    <span class="badge">7 Resources</span>
+  </header>
+
+  <div class="grid">
+    <article class="card featured">
+      <div class="card-content">
+        <div class="featured-badge">Most Popular</div>
+        <div class="card-meta">
+          <span class="author">@claudeai</span>
+          <span class="duration">Thread</span>
+        </div>
+        <h2 class="card-title">Claude Fable 5 Projects Showcase</h2>
+        <p class="card-desc">Official thread featuring 9+ community projects: 3D shaders, Yosemite terrain, Boeing 747 benchmark, glass liquid UI, goldfish app, IK body physics and more.</p>
+        <a class="link" href="https://x.com/claudeai/status/2065456684890292681" target="_blank">View on X &rarr;</a>
+      </div>
+      <div class="card-stats">
+        <div class="views">1.3M</div>
+        <div class="views-label">Views</div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card-content">
+        <div class="card-meta">
+          <span class="author">@himanshubuildss</span>
+          <span class="duration">40 Resources</span>
+        </div>
+        <h2 class="card-title">40 Vibe Coding Resources</h2>
+        <p class="card-desc">Complete resource list: scrolltide.co, shadcn, aceternity, magicui, Three.js, shadertoy, motion primitives, and 33 more curated tools and libraries.</p>
+        <a class="link" href="https://x.com/himanshubuildss/status/2109130327277142377" target="_blank">View on X &rarr;</a>
+      </div>
+      <div class="card-stats">
+        <div class="views">71K</div>
+        <div class="views-label">Views</div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card-content">
+        <div class="card-meta">
+          <span class="author">@celineodier</span>
+          <span class="duration">8 min</span>
+        </div>
+        <h2 class="card-title">Build 3D Websites with One Prompt</h2>
+        <p class="card-desc">3-step workflow: pick a 3D website from motionsites.ai, copy its prompt, paste into Gemini 4. No code or design skills needed.</p>
+        <a class="link" href="https://x.com/celineodier/status/2111487991633805770" target="_blank">View on X &rarr;</a>
+      </div>
+      <div class="card-stats">
+        <div class="views">70K</div>
+        <div class="views-label">Views</div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card-content">
+        <div class="card-meta">
+          <span class="author">@RoundtableSpace</span>
+          <span class="duration">21 min</span>
+        </div>
+        <h2 class="card-title">$100K Cinematic Websites with GPT-5.6 Sol</h2>
+        <p class="card-desc">Step-by-step tutorial for building high-value cinematic websites using GPT-5.6 Sol. Professional agency-level output.</p>
+        <a class="link" href="https://x.com/roundtablespace/status/2078657323648819284" target="_blank">View on X &rarr;</a>
+      </div>
+      <div class="card-stats">
+        <div class="views">66K</div>
+        <div class="views-label">Views</div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card-content">
+        <div class="card-meta">
+          <span class="author">@RoundtableSpace</span>
+          <span class="duration">25 Resources</span>
+        </div>
+        <h2 class="card-title">25 Vibe Coder Resources</h2>
+        <p class="card-desc">Curated collection of resources to stay ahead while others are still prompting blind. Essential toolkit for AI developers.</p>
+        <a class="link" href="https://x.com/roundtablespace/status/2111498724392214939" target="_blank">View on X &rarr;</a>
+      </div>
+      <div class="card-stats">
+        <div class="views">60K</div>
+        <div class="views-label">Views</div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card-content">
+        <div class="card-meta">
+          <span class="author">@RoundtableSpace</span>
+          <span class="duration">1 hour</span>
+        </div>
+        <h2 class="card-title">Claude 3D Websites Course</h2>
+        <p class="card-desc">Free 1-hour course covering interactive 3D experiences, games from scratch, and the full design workflow with Claude AI.</p>
+        <a class="link" href="https://x.com/roundtablespace/status/2086599657925329347" target="_blank">View on X &rarr;</a>
+      </div>
+      <div class="card-stats">
+        <div class="views">57K</div>
+        <div class="views-label">Views</div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card-content">
+        <div class="card-meta">
+          <span class="author">@RoundtableSpace</span>
+          <span class="duration">Demo</span>
+        </div>
+        <h2 class="card-title">800K Gaussian Splats in Browser</h2>
+        <p class="card-desc">Living world rendered with 800,000 Gaussian splats live in browser on WebGPU. Are Gaussian splats about to replace polygons?</p>
+        <a class="link" href="https://x.com/roundtablespace/status/2111098587706962285" target="_blank">View on X &rarr;</a>
+      </div>
+      <div class="card-stats">
+        <div class="views">39K</div>
+        <div class="views-label">Views</div>
+      </div>
+    </article>
+  </div>
+
+  <footer>
+    Curated AI Resources &middot; Updated Oct 2026
+  </footer>
+</div>

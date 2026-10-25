@@ -1,0 +1,365 @@
+<title>Non-Profit Website Intake</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap">
+<style>
+:root {
+  --bg: #0a0a0b;
+  --surface: #141416;
+  --border: #2a2a2e;
+  --fg: #f4f4f5;
+  --fg-muted: #a1a1aa;
+  --accent: #818cf8;
+  --accent-dim: rgba(129, 140, 248, 0.15);
+  color-scheme: dark;
+}
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    --bg: #f8f8fa;
+    --surface: #ffffff;
+    --border: #e4e4e7;
+    --fg: #18181b;
+    --fg-muted: #71717a;
+    --accent: #6366f1;
+    --accent-dim: rgba(99, 102, 241, 0.1);
+    color-scheme: light;
+  }
+}
+:root[data-theme="light"] {
+  --bg: #f8f8fa;
+  --surface: #ffffff;
+  --border: #e4e4e7;
+  --fg: #18181b;
+  --fg-muted: #71717a;
+  --accent: #6366f1;
+  --accent-dim: rgba(99, 102, 241, 0.1);
+  color-scheme: light;
+}
+
+* { box-sizing: border-box; margin: 0; }
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: 'DM Sans', system-ui, sans-serif;
+  line-height: 1.6;
+  padding-left: max(20px, env(safe-area-inset-left, 0px));
+  padding-right: max(20px, env(safe-area-inset-right, 0px));
+  padding-block: 2rem;
+}
+
+.container { max-width: 640px; margin: 0 auto; }
+
+header { text-align: center; margin-bottom: 2.5rem; }
+h1 { font-size: 1.75rem; font-weight: 700; margin-bottom: 0.5rem; }
+.subtitle { color: var(--fg-muted); }
+
+.section {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+}
+.section-title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.section-title span {
+  background: var(--accent-dim);
+  color: var(--accent);
+  font-size: 0.75rem;
+  padding: 0.25rem 0.625rem;
+  border-radius: 100px;
+}
+
+.field { margin-bottom: 1.25rem; }
+.field:last-child { margin-bottom: 0; }
+label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  font-size: 0.9375rem;
+}
+.hint {
+  color: var(--fg-muted);
+  font-size: 0.8125rem;
+  margin-bottom: 0.5rem;
+}
+input, textarea, select {
+  width: 100%;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0.875rem 1rem;
+  font-size: 1rem;
+  font-family: inherit;
+  color: var(--fg);
+  transition: border-color 0.15s;
+}
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+textarea { resize: vertical; min-height: 100px; }
+select { cursor: pointer; }
+
+.radio-group {
+  display: grid;
+  gap: 0.5rem;
+}
+.radio-option {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1rem;
+  cursor: pointer;
+  transition: border-color 0.15s;
+}
+.radio-option:has(input:checked) {
+  border-color: var(--accent);
+  background: var(--accent-dim);
+}
+.radio-option input {
+  width: auto;
+  accent-color: var(--accent);
+}
+
+.checkbox-group {
+  display: grid;
+  gap: 0.5rem;
+}
+.checkbox-option {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem 0;
+}
+.checkbox-option input {
+  width: auto;
+  accent-color: var(--accent);
+}
+
+.submit-btn {
+  width: 100%;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  padding: 1rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+footer {
+  text-align: center;
+  margin-top: 2rem;
+  color: var(--fg-muted);
+  font-size: 0.875rem;
+}
+</style>
+
+<div class="container">
+  <header>
+    <h1>Non-Profit Website Intake</h1>
+    <p class="subtitle">Fill this out so we can build your site</p>
+  </header>
+
+  <form>
+    <div class="section">
+      <div class="section-title">The Basics <span>Required</span></div>
+
+      <div class="field">
+        <label>Organization Name</label>
+        <input type="text" placeholder="e.g. Hope for Tomorrow Foundation">
+      </div>
+
+      <div class="field">
+        <label>Mission Statement</label>
+        <p class="hint">1-2 sentences: What do you do and why?</p>
+        <textarea placeholder="e.g. We provide meals and shelter to homeless veterans in the Bay Area, helping them rebuild their lives with dignity."></textarea>
+      </div>
+
+      <div class="field">
+        <label>Contact Email</label>
+        <input type="email" placeholder="yourname@organization.org">
+      </div>
+
+      <div class="field">
+        <label>Phone Number</label>
+        <input type="tel" placeholder="(555) 123-4567">
+      </div>
+
+      <div class="field">
+        <label>Location / Area You Serve</label>
+        <input type="text" placeholder="e.g. Los Angeles, CA / Nationwide / Online">
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Main Goal <span>Pick One</span></div>
+      <p class="hint" style="margin-bottom: 1rem;">What's the #1 thing you want visitors to do? (This will be the big button on your homepage)</p>
+
+      <div class="radio-group">
+        <label class="radio-option">
+          <input type="radio" name="main-goal" value="donate">
+          <div>
+            <strong>Donate</strong>
+            <div style="color: var(--fg-muted); font-size: 0.875rem;">Get financial support</div>
+          </div>
+        </label>
+        <label class="radio-option">
+          <input type="radio" name="main-goal" value="volunteer">
+          <div>
+            <strong>Volunteer</strong>
+            <div style="color: var(--fg-muted); font-size: 0.875rem;">Get people to help</div>
+          </div>
+        </label>
+        <label class="radio-option">
+          <input type="radio" name="main-goal" value="learn">
+          <div>
+            <strong>Learn About the Cause</strong>
+            <div style="color: var(--fg-muted); font-size: 0.875rem;">Spread awareness</div>
+          </div>
+        </label>
+        <label class="radio-option">
+          <input type="radio" name="main-goal" value="contact">
+          <div>
+            <strong>Contact / Get Help</strong>
+            <div style="color: var(--fg-muted); font-size: 0.875rem;">Connect with people who need you</div>
+          </div>
+        </label>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Your Story</div>
+
+      <div class="field">
+        <label>Why did you start this?</label>
+        <p class="hint">Personal story, what inspired you, the problem you saw</p>
+        <textarea placeholder="Tell us your story..."></textarea>
+      </div>
+
+      <div class="field">
+        <label>Who do you help?</label>
+        <p class="hint">Describe the people/community you serve</p>
+        <textarea placeholder="e.g. Single mothers in underserved communities, Veterans struggling with PTSD, At-risk youth ages 14-18..."></textarea>
+      </div>
+
+      <div class="field">
+        <label>How do you help them?</label>
+        <p class="hint">Your programs, services, events</p>
+        <textarea placeholder="e.g. Weekly food distribution, Job training workshops, Mental health counseling, Annual scholarship program..."></textarea>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Visuals & Branding</div>
+
+      <div class="field">
+        <label>Do you have a logo?</label>
+        <div class="radio-group">
+          <label class="radio-option">
+            <input type="radio" name="has-logo" value="yes">
+            <span>Yes - I'll send it</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="has-logo" value="no">
+            <span>No - I need one made</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Brand Colors</label>
+        <p class="hint">If you have specific colors, list them. Otherwise we'll pick for you.</p>
+        <input type="text" placeholder="e.g. Navy blue and gold, or #1E40AF and #F59E0B">
+      </div>
+
+      <div class="field">
+        <label>Photos you can share</label>
+        <p class="hint">Check all you have</p>
+        <div class="checkbox-group">
+          <label class="checkbox-option">
+            <input type="checkbox"> Team / founder photos
+          </label>
+          <label class="checkbox-option">
+            <input type="checkbox"> Photos of your work / events
+          </label>
+          <label class="checkbox-option">
+            <input type="checkbox"> Photos of people you've helped
+          </label>
+          <label class="checkbox-option">
+            <input type="checkbox"> Community / location photos
+          </label>
+          <label class="checkbox-option">
+            <input type="checkbox"> None yet - need stock photos
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Donations</div>
+
+      <div class="field">
+        <label>Are you a registered 501(c)(3)?</label>
+        <p class="hint">This lets donors write off their donations on taxes</p>
+        <div class="radio-group">
+          <label class="radio-option">
+            <input type="radio" name="501c3" value="yes">
+            <span>Yes</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="501c3" value="pending">
+            <span>In progress / pending</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="501c3" value="no">
+            <span>No / Not yet</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Suggested donation amounts</label>
+        <p class="hint">What amounts will you show as options?</p>
+        <input type="text" placeholder="e.g. $25, $50, $100, $250, Custom">
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Social & Links</div>
+
+      <div class="field">
+        <label>Social Media Links</label>
+        <p class="hint">Paste any that apply</p>
+        <input type="text" placeholder="Instagram" style="margin-bottom: 0.5rem;">
+        <input type="text" placeholder="Facebook" style="margin-bottom: 0.5rem;">
+        <input type="text" placeholder="Twitter / X" style="margin-bottom: 0.5rem;">
+        <input type="text" placeholder="LinkedIn">
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Anything Else?</div>
+      <div class="field">
+        <label>Other notes, requests, or examples of sites you like</label>
+        <textarea placeholder="Anything else we should know..."></textarea>
+      </div>
+    </div>
+
+    <button type="submit" class="submit-btn">Submit</button>
+  </form>
+
+  <footer>We'll review and reach out within 24-48 hours</footer>
+</div>
